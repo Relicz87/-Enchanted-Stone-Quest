@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchanted Stone Quest Guide</title>
+    <style>
+        :root {
+            --primary-color: #49556e;
+            --secondary-color: #E8EFFC;
+            --background-color: #191E29;
+            --text-color: #E8EFFC;
+            --table-bg: #252a38;
+            --table-header-bg: var(--primary-color);
+            --table-border: #101318;
+            --shadow-color: rgba(16, 19, 24, 0.2);
+            --font-size-base: 14px;
+            --font-size-heading: 1rem;
+            --spacing-unit: 15px;
+            --image-max-width: 600px;
+            --image-border-radius: 5px;
+            --transition-speed: 0.3s;
+            --note-bg: #2e3447;
+            --icon-size: 1.2rem;
+            --panel-bg: #2e3447;
+            --panel-border: #49556e;
+            --thumbnail-width: 80px;
+            --thumbnail-height: 50px;
+            --thumbnail-margin: 5px;
+            --arrow-size: 30px;
+            --tab-width: 102px;
+            --tab-content-width: 510px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            font-size: var(--font-size-base);
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        .wikitable {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            background-color: var(--table-bg);
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        .wikitable th, .wikitable td {
+            padding: calc(var(--spacing-unit) * 0.6) calc(var(--spacing-unit) * 0.75);
+            border: 1px solid var(--table-border);
+            text-align: left;
+        }
+
+        .wikitable th {
+            background-color: var(--table-header-bg);
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .wikitable td {
+            background-color: var(--table-bg);
+        }
+
+        h4 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-top: calc(var(--spacing-unit) * 1.5);
+            font-size: var(--font-size-heading);
+        }
+
+        p {
+            margin: var(--spacing-unit) 0;
+        }
+
+        .credits, .note {
+            font-style: italic;
+            color: var(--text-color);
+            background-color: var(--note-bg);
+            padding: calc(var(--spacing-unit) * 0.5);
+            border-radius: var(--image-border-radius);
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-unit);
+            margin: var(--spacing-unit) 0;
+        }
+
+        .image-container img, .center-image img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--image-border-radius);
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: transform var(--transition-speed);
+        }
+
+        .image-container img:hover, .center-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .center-image {
+            text-align: center;
+            margin: var(--spacing-unit) 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: var(--spacing-unit);
+            font-weight: bold;
+            font-size: calc(var(--font-size-base) * 1.1);
+        }
+
+        .tab-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            gap: 0;
+            position: relative;
+            margin: var(--spacing-unit) auto;
+            width: var(--tab-content-width);
+            max-width: var(--image-max-width);
+            transform: translateX(-8%);
+        }
+
+        .tab-row {
+            display: flex;
+            justify-content: center;
+            padding: 1px 1px;
+            min-height: 36px;
+            border: 1px solid var(--primary-color);
+            background-color: var(--table-border);
+        }
+
+        .tab-row.top {
+            grid-row: 1;
+            border-bottom: none;
+            border-radius: var(--image-border-radius) var(--image-border-radius) 0 0;
+        }
+
+        .tab-row.bottom {
+            grid-row: 2;
+            border-top: none;
+            border-radius: 0 0 var(--image-border-radius) var(--image-border-radius);
+        }
+
+        .tab-row.top .tab:first-child {
+            border-top-left-radius: var(--image-border-radius);
+        }
+
+        .tab-row.top .tab:last-child {
+            border-top-right-radius: var(--image-border-radius);
+        }
+
+        .tab-row.bottom .tab:first-child {
+            border-bottom-left-radius: var(--image-border-radius);
+        }
+
+        .tab-row.bottom .tab:last-child {
+            border-bottom-right-radius: var(--image-border-radius);
+        }
+
+        .content-line {
+            height: 2px;
+            background-color: var(--primary-color);
+            border: none;
+            margin: var(--spacing-unit) auto 0;
+            width: var(--tab-content-width);
+            max-width: var(--image-max-width);
+            transform: translateX(0%);
+        }
+
+        .tab {
+            text-align: center;
+            display: inline-block;
+            width: var(--tab-width);
+            padding: calc(var(--spacing-unit) * 0.5);
+            background-color: var(--table-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            font-size: calc(var(--font-size-base) * 0.9);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 1;
+            position: relative;
+            outline: none;
+            border: none;
+        }
+
+        .tab.bottom {
+            transform: rotateX(360deg);
+            margin: 0;
+            padding: calc(var(--spacing-unit) * 0.5);
+        }
+
+        .tab span {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .tab.bottom span {
+            transform: rotateX(360deg);
+        }
+
+        .tab-step {
+            font-size: calc(var(--font-size-base) * 0.8);
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            z-index: 2;
+        }
+
+        .tab:hover {
+            color: var(--secondary-color);
+        }
+
+        .tab:focus {
+            outline: none;
+            background-color: #3a4560;
+        }
+
+        .tab.active:hover, .tab.active:focus {
+            outline: none;
+        }
+
+        .tab-content-container {
+            margin: calc(var(--spacing-unit) * 0.5) auto 0;
+            width: var(--tab-content-width);
+            max-width: var(--image-max-width);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--image-border-radius);
+            padding: var(--spacing-unit);
+            box-sizing: border-box;
+            transform: translateX(0%);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .table-container {
+            position: relative;
+            margin: var(--spacing-unit) 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-unit);
+            position: relative;
+        }
+
+        .intro-image-container, .step-image-container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: var(--spacing-unit);
+            margin: var(--spacing-unit) 0;
+            align-items: flex-start;
+        }
+
+        .intro-text, .step-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            word-wrap: break-word;
+            padding: 0 calc(var(--spacing-unit) * 2);
+            margin: 0 calc(var(--spacing-unit) * 2);
+            min-height: 100%;
+            align-self: stretch;
+        }
+
+        .image-hover-wrapper {
+            position: relative;
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+
+        .image-hover-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--image-border-radius);
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            display: block;
+        }
+
+        .image-hover-wrapper .default-image {
+            opacity: 1;
+        }
+
+        .image-hover-wrapper .hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .image-hover-wrapper:hover .default-image {
+            opacity: 0;
+        }
+
+        .image-hover-wrapper:hover .hover-image {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .slideshow-container {
+            max-width: var(--image-max-width);
+            margin: var(--spacing-unit) auto;
+            position: relative;
+        }
+
+        .slideshow-main-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            min-height: 320px;
+        }
+
+        .slideshow-main-image p {
+            margin: 0 0 calc(var(--spacing-unit) * 0.5) 0;
+            font-weight: bold;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .slideshow-main-image img {
+            max-width: 300px;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--image-border-radius);
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: transform var(--transition-speed);
+        }
+
+        .slideshow-main-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .slideshow-thumbnails {
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+            margin-top: var(--spacing-unit);
+            position: relative;
+        }
+
+        .slideshow-thumbnails-inner {
+            display: flex;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .slideshow-thumbnail {
+            flex: 0 0 auto;
+            margin: 0 var(--thumbnail-margin);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .slideshow-thumbnail img {
+            width: var(--thumbnail-width);
+            height: var(--thumbnail-height);
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--image-border-radius);
+            box-shadow: 0 2px 5px var(--shadow-color);
+            transition: border-color var(--transition-speed);
+        }
+
+        .slideshow-arrow {
+            position: absolute;
+            top: 150px;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: calc(var(--icon-size) * 2.0);
+            transition: color var(--transition-speed);
+            z-index: 1;
+            outline: none;
+        }
+
+        .slideshow-arrow.left {
+            left: -40px;
+        }
+
+        .slideshow-arrow.right {
+            right: -40px;
+        }
+
+        .slideshow-arrow.active {
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .slideshow-arrow.inactive {
+            color: var(--primary-color);
+            cursor: default;
+        }
+
+        .slideshow-thumbnail:focus {
+            outline: none;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .slideshow-arrow:focus {
+            outline: none;
+            border: none;
+        }
+
+        .hidden-span {
+            position: absolute;
+            visibility: hidden;
+            white-space: nowrap;
+            font-size: calc(var(--font-size-base) * 0.9);
+            padding: calc(var(--spacing-unit) * 0.5);
+        }
+
+        .hidden-span.step {
+            font-size: calc(var(--font-size-base) * 0.8);
+        }
+
+        @media (max-width: 600px) {
+            .wikitable th, .wikitable td {
+                padding: calc(var(--spacing-unit) * 0.4) calc(var(--spacing-unit) * 0.5);
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--spacing-unit);
+            }
+
+            .intro-image-container, .step-image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .intro-text, .step-text {
+                border-bottom: 2px solid var(--table-bg);
+                padding: 0 0 calc(var(--spacing-unit) * 2) 0;
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .image-hover-wrapper {
+                max-width: 100%;
+            }
+
+            .slideshow-container {
+                max-width: 100%;
+                margin: var(--spacing-unit) auto;
+            }
+
+            .slideshow-thumbnails {
+                justify-content: center;
+            }
+
+            .slideshow-thumbnail img {
+                width: calc(var(--thumbnail-width) * 0.8);
+                height: calc(var(--thumbnail-height) * 0.8);
+            }
+
+            .slideshow-arrow {
+                width: calc(var(--arrow-size) * 0.8);
+                height: calc(var(--arrow-size) * 0.8);
+                top: 120px;
+            }
+
+            .slideshow-arrow.left {
+                left: -40px;
+            }
+
+            .slideshow-arrow.right {
+                right: -40px;
+            }
+
+            .slideshow-main-image {
+                min-height: 250px;
+            }
+
+            .tab-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                transform: none;
+            }
+
+            .tab-row {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border: 1px solid var(--primary-color);
+                border-radius: 0;
+                min-height: auto;
+                background-color: var(--table-border);
+            }
+
+            .tab-row.top .tab:first-child {
+                border-top-left-radius: var(--image-border-radius);
+            }
+
+            .tab-row.top .tab:last-child {
+                border-top-right-radius: var(--image-border-radius);
+            }
+
+            .tab-row.bottom .tab:first-child {
+                border-bottom-left-radius: var(--image-border-radius);
+            }
+
+            .tab-row.bottom .tab:last-child {
+                border-bottom-right-radius: var(--image-border-radius);
+            }
+
+            .content-line {
+                display: block;
+                width: 100%;
+                transform: translateY(0%);
+            }
+
+            .tab {
+                width: 100%;
+                text-align: center;
+                transition: none;
+                transform: none;
+                margin: 2px 0;
+                border-radius: 0;
+                padding: calc(var(--spacing-unit) * 0.5);
+            }
+
+            .tab-content-container {
+                width: 100%;
+                padding: calc(var(--spacing-unit) * 0.5);
+                transform: none;
+            }
+
+            .tab span {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="table-container">
+            <table class="wikitable">
+                <tr>
+                    <th>Required Level</th>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <th>Required Equipment</th>
+                    <td>Pickaxe, Machete, Rope</td>
+                </tr>
+                <tr>
+                    <th>Optional Equipment</th>
+                    <td>6 Boxes or Parcels (No Levitate spell)</td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td>North and South of Cormaya, Shadowthorn</td>
+                </tr>
+                <tr>
+                    <th>Reward</th>
+                    <td>Strange Stone, Mana Gem, Enchanted Stone (teleport to Thais for 30 mana)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="slideshow-container" data-images='[]'>
+            <div class="slideshow-main-image">
+                <p>No Images</p>
+                <img src="" alt="No Image" style="display: none;" />
+            </div>
+            <button class="slideshow-arrow left" tabindex="0">🢔</button>
+            <button class="slideshow-arrow right" tabindex="0">🢖</button>
+            <div class="slideshow-thumbnails">
+                <div class="slideshow-thumbnails-inner">
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-container">
+            <div class="tab-row top">
+                <div class="tab active" data-tab="introduction" tabindex="0"><span>Introduction</span></div>
+                <div class="tab tab-step" data-tab="step1" data-hover-text="West of Quest" tabindex="0"><span>Step 1</span></div>
+                <div class="tab tab-step" data-tab="step2" data-hover-text="North-East Cormaya" tabindex="0"><span>Step 2</span></div>
+                <div class="tab tab-step" data-tab="step3" data-hover-text="North-West Cormaya" tabindex="0"><span>Step 3</span></div>
+                <div class="tab tab-step" data-tab="step4" data-hover-text="Zealot Mausoleum" tabindex="0"><span>Step 4</span></div>
+            </div>
+            <div class="tab-row bottom">
+                <div class="tab bottom" data-tab="mausoleum" tabindex="0"><span>Mausoleum Access</span></div>
+                <div class="tab bottom tab-step" data-tab="step5" data-hover-text="South Shadowthorne" tabindex="0"><span>Step 5</span></div>
+                <div class="tab bottom tab-step" data-tab="step6" data-hover-text="South-West of The Quarry" tabindex="0"><span>Step 6</span></div>
+                <div class="tab bottom tab-step" data-tab="step7" data-hover-text="The Quarry Abyss" tabindex="0"><span>Step 7</span></div>
+                <div class="tab bottom tab-step" data-tab="step8" data-hover-text="Quest Location" tabindex="0"><span>Step 8</span></div>
+            </div>
+        </div>
+
+        <hr class="content-line">
+
+        <div class="tab-content-container">
+            <div class="tab-content active" data-tab="introduction" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/a/a4/Tpstonequest01.png/300px-Tpstonequest01.png", "alt": "Quest Area", "caption": "Quest Area"},
+                {"src": "https://wiki.ironco.re/images/thumb/d/de/Tpstonequest02.png/300px-Tpstonequest02.png", "alt": "Lever Image", "caption": "Lever Image"}
+            ]'>
+                <div class="intro-image-container">
+                    <div class="intro-text">
+                        <p> If this has been done by someone else before server reset,
+                        this will be a very quick quest. So before anything, check if it
+                        was completed. The <u>location</u> is in the mountains <b>East of Cormaya</b>.
+                        </p>
+                        <p>Spread throughout Cormaya (and Shadowthorne) there are <b>7 pairs</b> of <u>buttons</u> and <u>levers</u> close together and it's <b><font color="red">IMPORTANT</font></b> to press them in the correct order. <br>
+                        <br>The first lever in these pairs will light up one of the braziers around the quest location, and more importantly, it will open the way to the second lever of the pair. This second lever + the first lever of the next pair will allow you to access the second lever of the next pair.</p>
+                        <p>The very first lever you'll find is in the +1 level right above the quest location. Use <b><font color="Royalblue">Levitate Spell</font></b> to reach it. (It is unclear what this lever does, but it is likely necessary to press it first.)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step1" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/e/e9/Tpstonequest03.jpg/300px-Tpstonequest03.jpg", "alt": "Exani hur up to Zealot button", "caption": "Path to Zealot and Button location"},
+                {"src": "https://wiki.ironco.re/images/thumb/7/72/Tpstonequest04.png/300px-Tpstonequest04.png", "alt": "Zealot button location", "caption": "Entrance to Levers"},
+                {"src": "https://wiki.ironco.re/images/thumb/8/8d/StoneGolemPickhole.png/300px-StoneGolemPickhole.png", "alt": "Pick hole", "caption": "Pick Hole"},
+                {"src": "https://wiki.ironco.re/images/thumb/6/6f/StoneGolemLever2.png/300px-StoneGolemLever2.png", "alt": "Stone Golem lever", "caption": "Stone Golem Lever"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>Just West of the quest, you will find your first buttons and levers.
+                        <br><b>Tool needed:</b> <font color="gold"/>Pick</font> 
+                        <br><b>Enemies:</b> <font color="red"/>Zealots</font>, <font color="red"/>Stone Golems</font>, <font color="red"/>Demon Skeleton</font>, <font color="red"/>Cyclops</font></p>
+                        <p><b>Part A:</b> Head back towards the west and up the slope, you will find 2 Zealots and a house. Inside the house on the far Northwest wall you'll find a button. Make sure you click this.</p>
+                        <p><b>Part B:</b> Once you've clicked the button, go down the slope and around on the east part, into the cave and down. You might have to kill 3 Stone Golems. Stair jump if it's hard. Once you're able, use a pickaxe to open the hole and jump down. You will face 1 Demon Skeleton here. Click the lever and head back up. Lever should get stuck.</p>
+                        <p><b>Part C:</b> Now head south of the picked hole and into where the Golems came from, you will find the second lever. Pull it and it should get stuck.</p><p>Move on to <b>Step 2</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step2">
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>The second pair of buttons is at the Orcs <b>North-East</b> of <b>Cormaya</b>.
+                        <br><b>Tool needed:</b> <font color="LightSkyBlue"/>Levitate</font> or 6 <font color="gold"/>Boxes</font>/<font color="gold"/>Parcels</font>
+                        <br><b>Enemies:</b> <font color="red"/>All kinds of Orcs</font></p>
+                        <p><b>Part A:</b> Follow the arrow and <b>Levitate</b> up the wall facing west or use boxes/parcels. The first button is in the small house circled, on the left wall.</p>
+                        <p><b>Part B:</b> Second button can be accessed by going around on the left side of the tiny house and <u>Levitate</u> down from the balcony, kill the Orcs and press the second button under the balcony. It should get stuck.</p>
+                        <p>Move on to <b>Step 3</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step3" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/6/65/Tpstonequest08.png/300px-Tpstonequest08.png", "alt": "House with First lever", "caption": "House with First lever"},
+                {"src": "https://wiki.ironco.re/images/thumb/6/6b/Tpstonequest09.png/300px-Tpstonequest09.png", "alt": "Button under balcony", "caption": "Minotaur Cave Lever"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p><b>North-West</b> of <b>Cormaya</b> you will find the third pair.
+                        <br><b>Tool needed:</b> <font color="gold"/>None</font>
+                        <br><b>Enemies:</b> <font color="red"/>Black Knights</font>, <font color="red"/>Zealots</font>, <font color="red"/>Dark Monks</font>, <font color="red"/>Minotaur Guards</font></p>
+                        <p><b>Part A:</b> Enter the basement of the circled building to find a lever and click it. It opens the way to the second lever in the pair.</p>
+                        <p><b>Part B:</b> Go south of the house and up the slope on the mountain. Head West and down. Then Follow the arrows down the Minotaur cave, you will face some Minotaur Guards and a Zealot. Press the lever to stick it.</p>
+                        <p>Move on to <b>Step 4</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step4">
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>The fourth pair is inside the <b>Zealot Mausoleum</b>. To enter this area, you need to do the access quest or ask someone who has access if they can help. To gain access, check the "<u>Mausoleum Access</u>" further down.
+                        <br><b>Tool needed:</b> <font color="gold"/>Rope</font>
+                        <br><b>Enemies:</b> <font color="red"/>Zealots</font>,<font color="red"/>White Knights</font></p>
+                        <p><b>Part A:</b> Assuming you have access, follow the arrow in the Mausoleum and go upstairs. Take it slow due to Zealots and White Knights. Trap them in buildings if needed. In a room you will find a lever to unlock a cell next to it.</p>
+                        <p><b>Part B:</b> In the cell, move around the trash to find a sewer, go down and press the lever to stick it. Avoid the north path (a one-way shortcut to Venore)</p>
+                        <p>Move on to <b>Step 5</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step5" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/4/4b/Tpstonequest16.png/300px-Tpstonequest16.png", "alt": "Mausoleum upstairs path", "caption": "First and Second Lever ladders"},
+                {"src": "https://wiki.ironco.re/images/8/85/Tpstonequest17.png", "alt": "Sewer grating and red lever", "caption": "Top floor Maze"},
+                {"src": "https://wiki.ironco.re/images/thumb/3/39/Shadowthornhiddenlever.png/300px-Shadowthornhiddenlever.png", "alt": "Sewer grating and red lever", "caption": "Top floor Maze with hidden lever"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>The fifth pair is in South Shadowthorne.
+                        <br><b>Tool needed:</b> <font color="gold"/>Machete</font>
+                        <br><b>Enemies:</b> <font color="red"/>All types of Elves</font></p>
+                        <p><b>Part A:</b> Using the first picture, go up the <b>First Lever ladder</b>, press the lever and head back down the ladder.</p> 
+                        <p><b>Part B:</b> Go up the <b>Second Lever ladder</b> and keep going up. You will run into a few <font color="Red"><b>Elf Arcanists</b></font>, navigate the maze towards the spider, cut through with your machete, and find a hidden lever where the arrow points, use it and it should get stuck.</p>
+                        <p>Move on to <b>Step 6</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step6" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/1/1f/Tpstonequest18.png/300px-Tpstonequest18.png", "alt": "Ruined house button", "caption": "First and Second Button locations"},
+                {"src": "https://wiki.ironco.re/images/thumb/c/c5/Gs1.png/300px-Gs1.png", "alt": "Ruined house button", "caption": "Ruined House Button"},
+                {"src": "https://wiki.ironco.re/images/thumb/2/28/Gs2.png/300px-Gs2.png", "alt": "Ruined house button", "caption": "Cave Button"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>For the sixth pair you will have to venture South-West from The Quarry. <br><b>Tool needed:</b> <font color="gold"/>None</font>
+                        <br><b>Enemies:</b> <font color="red"/>Giant Spiders</font></p>
+                        <p><b>Part A:</b> Make your way towards the ruined house on the left side and press the button on the wall. But be very careful as it is a breeding ground for <font color="Red">Giant Spiders</font>, you wont be able to avoid them, so if you have a hard time, ask around to see if someone could help kill the spiders. It is possible to do them one by one, but they might spawn back before you are done.</p>
+                        <p><b>Part B:</b> Head over to the cave to the east and press the button. The button gets stuck.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step7" data-images='[
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 1", "caption": "Quarry Path", "width": "300px"},
+                {"src": "https://wiki.ironco.re/images/thumb/5/58/Tpstonequest20.png/300px-Tpstonequest20.png", "alt": "Image 2", "caption": "Abyss Levers"},
+                {"src": "https://wiki.ironco.re/images/thumb/1/1d/Tpstonequest21.png/300px-Tpstonequest21.png", "alt": "Image 3", "caption": "Quarry Overview"},
+                {"src": "https://wiki.ironco.re/images/5/5a/Tpstonequest22.png", "alt": "Image 4", "caption": "Stone Golem Area"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 5", "caption": "Placeholder Image 5"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 6", "caption": "Placeholder Image 6"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 7", "caption": "Placeholder Image 7"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 8", "caption": "Placeholder Image 8"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 9", "caption": "Placeholder Image 9"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 10", "caption": "Placeholder Image 10"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 11", "caption": "Placeholder Image 11"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 12", "caption": "Placeholder Image 12"},
+                {"src": "https://i.imgur.com/pE0jmLF.png", "alt": "Image 13", "caption": "Placeholder Image 13"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>These are the final pairs, but also the most painful ones, 
+                        <br><b>Tool needed:</b> <font color="Gold"/>None</font>
+                        <br><b>Enemies:</b> <font color="red"/>Stone Golems</font></p>
+                        <p><b>Part A:</b> Start by making your way down the Quarry, they are located deep inside the dwarven quarry, at level -7, in a spooky place called the "Abyss". This place is gigantic and infested with Stone Golems. Lucky for you, we did the ground work, so you just need to follow the arrows through the large area with Stone Golems. Both levers are together; press them. One will stick, the other won't.</p>
+                        <p><b>Part B:</b> Return to the where the quest location is; the path should now be opened and will stay like that until the next server save.</p>
+                        <p>Move on to <b>Step 8</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="step8" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/1/1f/Tpstonequest18.png/300px-Tpstonequest18.png", "alt": "Dwarven quarry path", "caption": "Quary Path"},
+                {"src": "https://wiki.ironco.re/images/thumb/b/be/Tpstonequest19.png/300px-Tpstonequest19.png", "alt": "Abyss levers", "caption": "Abyss Levers"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p>The final pair is in the dwarven quarry, level -7, in the Abyss. Follow the arrows through the large area with Stone Golems. Both levers are together; press them. One will stick, the other won't.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" data-tab="mausoleum" data-images='[
+                {"src": "https://wiki.ironco.re/images/thumb/4/44/Tpstonequest26.png/300px-Tpstonequest26.png", "alt": "Giant spider pit corpse", "caption": "Spider Pit Corpse"},
+                {"src": "https://wiki.ironco.re/images/thumb/c/c2/Tpstonequest27.png/300px-Tpstonequest27.png", "alt": "Mausoleum entrance", "caption": "Mausoleum Entrance"}
+            ]'>
+                <div class="step-image-container">
+                    <div class="step-text">
+                        <p><b>Step 5 (continued):</b> North of Cormaya, find a hole with no way back, a dangerous pit with giant spiders. Either run through (approximately 8 spiders) or kill them one or two at a time. At the end of the cave, click a dead human corpse to gain access to the Mausoleum.</p>
+                        <p><b>Step 6:</b> In the giant spider pit, go directly west (the north path is a trap; the green stone is a red herring that may trap you).</p>
+                        <p><b>Step 6B:</b> The correct path is north at the 3-way cave. Go up the rope hole, killing spiders one at a time or running through. Touch the corpse shown to unlock the Mausoleum.</p>
+                        <p><b>Step 7:</b> Enter the Mausoleum at the marked entrance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-container">
+            <p><a href="https://wiki.ironco.re/index.php?title=Quests" class="back-link">Back to Quests</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize tabs with original text and tooltips
+        document.querySelectorAll('.tab').forEach(tab => {
+            const originalText = tab.querySelector('span').innerText;
+            tab.setAttribute('data-original-text', originalText);
+            const hoverText = tab.getAttribute('data-hover-text') || originalText;
+            tab.setAttribute('title', hoverText);
+        });
+
+        // Function to activate a tab
+        function activateTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => {
+                t.classList.remove('active');
+                t.querySelector('span').innerText = t.getAttribute('data-original-text');
+            });
+
+            tab.classList.add('active');
+            const hoverText = tab.getAttribute('data-hover-text') || tab.getAttribute('data-original-text');
+            tab.querySelector('span').innerText = hoverText;
+
+            const tabId = tab.getAttribute('data-tab');
+            const content = document.querySelector(`.tab-content[data-tab="${tabId}"]`);
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            content.classList.add('active');
+
+            updateSlideshowFromActiveTab();
+        }
+
+        // Tab Navigation (Mouse)
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                activateTab(tab);
+            });
+
+            tab.addEventListener('mouseover', () => {
+                const hoverText = tab.getAttribute('data-hover-text');
+                if (hoverText) {
+                    tab.querySelector('span').innerText = hoverText;
+                }
+            });
+
+            tab.addEventListener('mouseout', () => {
+                if (!tab.classList.contains('active')) {
+                    tab.querySelector('span').innerText = tab.getAttribute('data-original-text');
+                }
+            });
+
+            tab.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    activateTab(tab);
+                }
+            });
+        });
+
+        // Keyboard Navigation for Tabs
+        document.querySelector('.tab-container').addEventListener('keydown', e => {
+            const tabsTop = Array.from(document.querySelector('.tab-row.top').querySelectorAll('.tab'));
+            const tabsBottom = Array.from(document.querySelector('.tab-row.bottom').querySelectorAll('.tab'));
+            const activeTab = document.querySelector('.tab.active');
+            const currentRow = tabsTop.includes(activeTab) ? tabsTop : tabsBottom;
+            const currentIndex = currentRow.indexOf(activeTab);
+
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                e.preventDefault();
+                currentRow[currentIndex - 1].focus();
+                activateTab(currentRow[currentIndex - 1]);
+            } else if (e.key === 'ArrowRight' && currentIndex < currentRow.length - 1) {
+                e.preventDefault();
+                currentRow[currentIndex + 1].focus();
+                activateTab(currentRow[currentIndex + 1]);
+            }
+        });
+
+        // Slideshow Functionality
+        const slideshow = document.querySelector('.slideshow-container');
+        const mainImage = slideshow.querySelector('.slideshow-main-image img');
+        const mainCaption = slideshow.querySelector('.slideshow-main-image p');
+        const thumbnailsInner = slideshow.querySelector('.slideshow-thumbnails-inner');
+        const leftArrow = slideshow.querySelector('.slideshow-arrow.left');
+        const rightArrow = slideshow.querySelector('.slideshow-arrow.right');
+        let currentIndex = 0;
+        const maxThumbnails = 3;
+
+        function updateSlideshow(images, index = 0) {
+            currentIndex = index;
+
+            thumbnailsInner.innerHTML = '';
+
+            if (images.length === 0) {
+                mainImage.src = '';
+                mainImage.style.display = 'none';
+                mainCaption.textContent = 'No Images';
+                leftArrow.classList.remove('active');
+                leftArrow.classList.add('inactive');
+                rightArrow.classList.remove('active');
+                rightArrow.classList.add('inactive');
+                return;
+            }
+
+            mainImage.src = images[index].src;
+            mainImage.alt = images[index].alt;
+            mainImage.style.display = 'block';
+            mainCaption.textContent = images[index].caption;
+
+            images.forEach((img, i) => {
+                const thumbDiv = document.createElement('div');
+                thumbDiv.classList.add('slideshow-thumbnail');
+                thumbDiv.setAttribute('data-index', i);
+                thumbDiv.setAttribute('tabindex', '0');
+                if (i === index) {
+                    thumbDiv.classList.add('active');
+                }
+                const thumbImg = document.createElement('img');
+                thumbImg.src = img.src;
+                thumbImg.alt = img.alt;
+                thumbDiv.appendChild(thumbImg);
+                thumbnailsInner.appendChild(thumbDiv);
+
+                thumbDiv.addEventListener('click', () => {
+                    updateSlideshow(images, i);
+                });
+
+                thumbDiv.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        updateSlideshow(images, i);
+                    }
+                });
+            });
+
+            const thumbnails = thumbnailsInner.querySelectorAll('.slideshow-thumbnail');
+            const thumbnailWidth = parseFloat(getComputedStyle(thumbnails[0]).width) + 2 * parseFloat(getComputedStyle(thumbnails[0]).marginRight);
+            const maxOffset = Math.max(0, (images.length - maxThumbnails) * thumbnailWidth);
+            let offset = 0;
+            if (index >= maxThumbnails - 1) {
+                offset = Math.min(maxOffset, (index - maxThumbnails + 2) * thumbnailWidth);
+            }
+            thumbnailsInner.style.transform = `translateX(-${offset}px)`;
+
+            leftArrow.classList.toggle('active', index > 0);
+            leftArrow.classList.toggle('inactive', index === 0);
+            rightArrow.classList.toggle('active', index < images.length - 1);
+            rightArrow.classList.toggle('inactive', index === images.length - 1);
+        }
+
+        function updateSlideshowFromActiveTab() {
+            const activeContent = document.querySelector('.tab-content.active');
+            const images = activeContent ? JSON.parse(activeContent.getAttribute('data-images') || '[]') : [];
+            updateSlideshow(images, 0);
+        }
+
+        leftArrow.addEventListener('click', () => {
+            const activeContent = document.querySelector('.tab-content.active');
+            const images = activeContent ? JSON.parse(activeContent.getAttribute('data-images') || '[]') : [];
+            if (currentIndex > 0) {
+                updateSlideshow(images, currentIndex - 1);
+            }
+        });
+
+        leftArrow.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const activeContent = document.querySelector('.tab-content.active');
+                const images = activeContent ? JSON.parse(activeContent.getAttribute('data-images') || '[]') : [];
+                if (currentIndex > 0) {
+                    updateSlideshow(images, currentIndex - 1);
+                }
+            }
+        });
+
+        rightArrow.addEventListener('click', () => {
+            const activeContent = document.querySelector('.tab-content.active');
+            const images = activeContent ? JSON.parse(activeContent.getAttribute('data-images') || '[]') : [];
+            if (currentIndex < images.length - 1) {
+                updateSlideshow(images, currentIndex + 1);
+            }
+        });
+
+        rightArrow.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const activeContent = document.querySelector('.tab-content.active');
+                const images = activeContent ? JSON.parse(activeContent.getAttribute('data-images') || '[]') : [];
+                if (currentIndex < images.length - 1) {
+                    updateSlideshow(images, currentIndex + 1);
+                }
+            }
+        });
+
+        slideshow.addEventListener('keydown', e => {
+            const activeContent = document.querySelector('.tab-content.active');
+            const images = activeContent ? JSON.parse(activeContent.getAttribute('data-images') || '[]') : [];
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                e.preventDefault();
+                updateSlideshow(images, currentIndex - 1);
+            } else if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
+                e.preventDefault();
+                updateSlideshow(images, currentIndex + 1);
+            }
+        });
+
+        updateSlideshowFromActiveTab();
+    </script>
+</body>
+</html>
